@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'open-uri'
+
+#affiliates = Affiliate.create([{ name: 'Amazon' }, { name: 'Best Buy' }])
+
+Affiliate.delete_all
+json = ActiveSupport::JSON.decode(open("http://firedov.es/db/merchants.min.json")).each do |affiliate|
+	Affiliate.create!(:name => affiliate['name'],
+									 :url => affiliate['url'],
+									 :logosrc => affiliate['logo_url'])
+end
+
+#json.each do |affiliate| Affiliate.create! (:name => affiliate'name', :url => affiliate'url', :logosrc => affiliate'logo_url',) end
