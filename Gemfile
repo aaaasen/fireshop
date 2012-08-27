@@ -7,7 +7,10 @@ gem 'rails', '3.2.8'
 
 gem 'pg'
 
-gem 'bootstrap-sass-rails'
+####gem 'bootstrap-sass', '2.0.4'
+gem 'therubyracer'
+gem 'less-rails-bootstrap'
+gem 'sass'
 
 # Gems used only for assets and not required
 # in production environments by default.
