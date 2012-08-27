@@ -4,6 +4,7 @@
 
 body {
 	background-image: url('subtle_dots.png');
+	font-family: "Open Sans", Helvetica, Arial, sans-serif !important ; 
 }
 
 .affiliate-box {
@@ -36,4 +37,9 @@ body {
 	position: absolute;
 	top: 7px;
 	left: 11px;
+}
+
+#explanation {
+	background-color: #fff;
+	text-align: left;
 }

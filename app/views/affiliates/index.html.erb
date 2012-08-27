@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
+		<link type="text/css" rel="stylesheet " 
+href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700,600" 
+/>
     <!-- Le styles -->
 		<!--    <link href="../assets/css/bootstrap.css" rel="stylesheet">-->
 
@@ -59,8 +61,16 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row show-grid shop-grid">
+		<div class="container"> 
+			<div class="row show-grid shop-grid">
+				<div class="span4">
+					<div class="affiliate-box">
+				<div class="sidebar-nav affiliate-box-inner" id="explanation">
+					<h5>Welcome to the Firedove Shop!</h5>
+					<p>Once you've clicked on one of our affiliated merchants, just complete your purchase as usual to donate to your nonprofit.</p>
+				</div>	
+			</div>
+			</div>
 				<% @affiliates.each do |affiliate| %>
 					<div class="span2 affiliate" id="<%= affiliate.name %>">
 					<div class="affiliate-box">
