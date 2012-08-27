@@ -14,6 +14,7 @@ Affiliate.delete_all
 json = ActiveSupport::JSON.decode(open("http://firedov.es/db/merchants.min.json")).each do |affiliate|
 	Affiliate.create!(:name => affiliate['name'],
 									 :url => affiliate['url'],
+									 :id => affiliate['id'],
 									 :logosrc => affiliate['logo_url'])
 end
 
