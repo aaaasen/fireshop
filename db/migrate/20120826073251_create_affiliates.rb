@@ -6,6 +6,7 @@ class CreateAffiliates < ActiveRecord::Migration
       t.string :logosrc
       t.string :alt
       t.float :commission
+			t.string :category
 
       t.timestamps
     end

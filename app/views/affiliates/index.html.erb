@@ -47,10 +47,20 @@ href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700
 						<img alt="firedove" src="http://firedov.es/assets/img/firelogo.png">
 					</a>
           <div class="nav-collapse collapse">
+
+								
 						<form class="navbar-search pull-right">
 							<div class="icon-search"></div>
 							<input type="text" onchange="onSearch()" id="affsearch" class="search-query span3" placeholder="search merchants">
 						</form>
+						<ul class="nav pull-right">
+							<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Category<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+									<li>1</li>
+									<li>2</li>
+								</ul>
+							</ul>
             <ul class="nav">
               <li><a href="http://firedov.es/">Home</a></li>
               <li class="active"><a href="#">Shop</a></li>
@@ -101,6 +111,8 @@ href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700
       <script src="../assets/js/bootstrap-carousel.js"></script>
       <script src="../assets/js/bootstrap-typeahead.js"></script>
 			<script>
+
+				var category_map = 1;
 
 				String.prototype.contains = function(search) {
 					if (this.toLowerCase().indexOf(search.toLowerCase()) >= 0)

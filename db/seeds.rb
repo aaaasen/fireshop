@@ -15,6 +15,8 @@ json = ActiveSupport::JSON.decode(open("http://firedov.es/db/merchants.min.json"
 	Affiliate.create!(:name => affiliate['name'],
 									 :url => affiliate['url'],
 									 :id => affiliate['id'],
+									 :category => affiliate['merchant_type_id'],
+									 :commission => affiliate['percent'],
 									 :logosrc => affiliate['logo_url'])
 end
 
