@@ -8,11 +8,11 @@ gem 'rails', '3.2.8'
 gem 'pg'
 
 #gem 'bootstrap-sass-rails'
-gem 'twitter-bootstrap-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+	gem 'twitter-bootstrap-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
