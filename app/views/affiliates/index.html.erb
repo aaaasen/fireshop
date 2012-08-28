@@ -53,8 +53,9 @@
 						</form>
 						<ul class="nav pull-right">
 							<select id="sel">
+									<option value="0">All</option>
 								<% @categories.each do |category| %>	
-									<option value="<%= category.id %>"><%= category.name %></option>
+									<option value="<%= category.id %>"><%= category.merchants %> - <%= category.name %></option>
 								<% end %>
 								</select>
 							</ul>
@@ -79,7 +80,7 @@
 			</div>
 			</div>
 				<% @affiliates.each do |affiliate| %>
-					<div class="span2 affiliate cat<%= affiliate.category %>" id="<%= affiliate.name %>" class="">
+					<div class="span2 affiliate cat<%= affiliate.category %>-" id="<%= affiliate.name %>" class="">
 					<div class="affiliate-box">
 						<div class="affiliate-box-inner">
 							<a rel="tooltip" data-original-title="<%= affiliate.name %>" class="affiliate-logo-link" href="<%= affiliate.url %>">
@@ -110,7 +111,7 @@
 			<script src="assets/select2.js"></script>
 			<script>
 
-				var cur_category = 72;
+				var cur_category = 0;
 				var searchval = '';
 
 				String.prototype.contains = function(search) {
@@ -123,7 +124,7 @@
 					$('.affiliate').each(function(index, affiliate) {
 						dump($(this).attr('class') + '\n');
 						dump(String(cur_category) + '\n');
-						if ($(this).attr('id').contains(searchval) && $(this).attr('class').contains('cat' + String(cur_category))) {
+						if ($(this).attr('id').contains(searchval) && ($(this).attr('class').contains('cat' + String(cur_category) + '-')) || cur_category == 0) {
 							$(this).toggle(true);
 							} else {
 								$(this).toggle(false);
