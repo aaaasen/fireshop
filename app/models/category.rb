@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  attr_accessible :merchants, :name, :title
+  attr_accessible :id, :merchants, :name
 end
