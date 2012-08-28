@@ -1,4 +1,6 @@
 Fireshop::Application.routes.draw do
+  resources :categories
+
   resources :affiliates
 
   get "home/index"

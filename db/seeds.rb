@@ -20,4 +20,12 @@ json = ActiveSupport::JSON.decode(open("http://firedov.es/db/merchants.min.json"
 									 :logosrc => affiliate['logo_url'])
 end
 
+Category.delete_all
+json = ActiveSupport::JSON.decode(open("http://firedov.es/db/categories.min.json")).each do |category|
+	print category['id'] + '\n'
+	Category.create!(:name => category['name'],
+									 :id => category['id'],
+									 :merchants => category['merchant_count'])
+end
+
 #json.each do |affiliate| Affiliate.create! (:name => affiliate'name', :url => affiliate'url', :logosrc => affiliate'logo_url',) end

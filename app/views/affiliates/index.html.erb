@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-		<link type="text/css" rel="stylesheet " 
-href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700,600" 
-/>
+		<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700,600" />
     <!-- Le styles -->
 		<!--    <link href="../assets/css/bootstrap.css" rel="stylesheet">-->
 
@@ -51,15 +49,14 @@ href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700
 								
 						<form class="navbar-search pull-right">
 							<div class="icon-search"></div>
-							<input type="text" onchange="onSearch()" id="affsearch" class="search-query span3" placeholder="search merchants">
+							<input type="text" id="affsearch" class="search-query span3" placeholder="search merchants">
 						</form>
 						<ul class="nav pull-right">
-							<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Category<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-									<li>1</li>
-									<li>2</li>
-								</ul>
+							<select id="sel">
+								<% @categories.each do |category| %>	
+									<option value="<%= category.id %>"><%= category.merchants %></option>
+								<% end %>
+								</select>
 							</ul>
             <ul class="nav">
               <li><a href="http://firedov.es/">Home</a></li>
@@ -82,7 +79,7 @@ href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700
 			</div>
 			</div>
 				<% @affiliates.each do |affiliate| %>
-					<div class="span2 affiliate" id="<%= affiliate.name %>">
+					<div class="span2 affiliate cat<%= affiliate.category %>" id="<%= affiliate.name %>" class="">
 					<div class="affiliate-box">
 						<div class="affiliate-box-inner">
 							<a rel="tooltip" data-original-title="<%= affiliate.name %>" class="affiliate-logo-link" href="<%= affiliate.url %>">
@@ -110,9 +107,11 @@ href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700
       <script src="../assets/js/bootstrap-collapse.js"></script>
       <script src="../assets/js/bootstrap-carousel.js"></script>
       <script src="../assets/js/bootstrap-typeahead.js"></script>
+			<script src="assets/select2.js"></script>
 			<script>
 
-				var category_map = 1;
+				var cur_category = 72;
+				var searchval = '';
 
 				String.prototype.contains = function(search) {
 					if (this.toLowerCase().indexOf(search.toLowerCase()) >= 0)
@@ -120,17 +119,29 @@ href="http://fonts.googleapis.com/css?family=Open+Sans:200,300italic,400,300,700
 					return false;
 				}
 
-				$('input#affsearch').keyup(function(el) {
-					var searchval = this.value;
+				function hideInvalidAff() {
 					$('.affiliate').each(function(index, affiliate) {
-						if ($(this).attr('id').contains(searchval)) {
+						dump($(this).attr('class') + '\n');
+						dump(String(cur_category) + '\n');
+						if ($(this).attr('id').contains(searchval) && $(this).attr('class').contains('cat' + String(cur_category))) {
 							$(this).toggle(true);
 							} else {
 								$(this).toggle(false);
 							}
 					});
+				}
+
+				$('input#affsearch').keyup(function(el) {
+					searchval = this.value;
+					hideInvalidAff();
 				});
 
+				$('#sel').change(function(el) {
+					$('#sel option:selected').each(function() {
+						cur_category = $(this).attr('value');
+						hideInvalidAff();
+					});
+				});
 				//function onSearch() {
 			//		dump(this.value);	
 			//	}
