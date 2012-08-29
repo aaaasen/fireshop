@@ -46,14 +46,13 @@ body {
 
 .category {
 	font-size: 12px;
-	border-bottom:1px solid #e4e4e4;
+}
+
+.category-nontop {
+	border-top:1px solid #e4e4e4;
 }
 
 #category-btn {
 	font-size: 12px;
-}
-
-.navbar-inner {
-	background-image: -moz-linear-gradient(center top , white, rgb(240, 240, 240)) !important; 
 }
 
