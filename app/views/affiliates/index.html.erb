@@ -46,19 +46,19 @@
 							<input type="text" id="affsearch" class="search-query span3" placeholder="search merchants">
 						</form>
 						<ul class="nav pull-right">
-							<div class="btn-group">
-								<button id="category-btn" class="btn">Categories</button>
-								<button class="btn dropdown-toggle" data-toggle="dropdown">
-									<span class="caret"></span>
-								</button>
+							<li class="dropdown">
+								<a href="#" id="category-btn" class="dropdown-toggle" data-toggle="dropdown">Categories <b class="caret"></b></a>
 								<ul class="dropdown-menu">
+									<li>
+										<a href="#" class="category" id="0">All </a>
+										</li>
 								<% @categories.each do |category| %>	
 									<li>
-									<a href="#" class="category" id="<%= category.id %>"><%= category.name %></a>
+									<a href="#" class="category" id="<%= category.id %>"><%= category.name %> </a>
 									</li>
 								<% end %>
 							</ul>
-						</div>
+							</li>
 						</ul>
             <ul class="nav">
               <li><a href="http://firedov.es/">Home</a></li>
@@ -93,18 +93,19 @@
 				<% end %>
 			</div>
     </div>
-			<script src="/assets/twitter/bootstrap/affix.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/alert.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/button.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/carousel.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/dropdown.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/modal.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/tooltip.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/popover.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/scrollspy.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/tab.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/transition.js" type="text/javascript"></script>
-			<script src="/assets/twitter/bootstrap/typeahead.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/affix.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/alert.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/button.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/carousel.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/dropdown.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/modal.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/tooltip.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/popover.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/scrollspy.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/tab.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/transition.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap/typeahead.js" type="text/javascript"></script>
+			<script src="/assets/bootstrap.js" type="text/javascript"></script>
 			<script>
 
 				var cur_category = 0;
@@ -133,7 +134,7 @@
 
 				$('a.category').click(function(el) {
 					cur_category = $(this).attr('id');
-					$('#category-btn').html($(this).html());
+					$('#category-btn').html($(this).html() + '<b class="caret"></b>');
 					hideInvalidAff();
 				});
 
