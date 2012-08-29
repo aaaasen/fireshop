@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import url('select2.css');
-
 body {
 	background-image: url('subtle_dots.png');
 	font-family: "Open Sans", Helvetica, Arial, sans-serif !important ; 
@@ -45,3 +43,13 @@ body {
 	background-color: #fff;
 	text-align: left;
 }
+
+.category {
+	font-size: 12px;
+	border-bottom:1px solid #e4e4e4;
+}
+
+#category-btn {
+	font-size: 12px;
+}
+

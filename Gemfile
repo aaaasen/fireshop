@@ -9,9 +9,11 @@ gem 'pg'
 
 ####gem 'bootstrap-sass', '2.0.4'
 gem 'therubyracer'
-gem 'less-rails-bootstrap'
+#gem 'less-rails-bootstrap'
 gem 'sass'
-gem 'select2-rails', '~> 3.1.1'
+#gem 'select2-rails'
+gem 'chosen-rails'
+gem 'less-rails-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.
