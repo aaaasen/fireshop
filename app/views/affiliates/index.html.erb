@@ -118,7 +118,7 @@
 
 				function hideInvalidAff() {
 					$('.affiliate').each(function(index, affiliate) {
-						if ($(this).attr('id').contains(searchval)/* && ($(this).attr('class').contains('cat' + String(cur_category) + '-') || cur_category == 0)*/) {
+						if ($(this).attr('id').contains(searchval) && ($(this).attr('class').contains('cat' + String(cur_category) + '-') || cur_category == 0)) {
 							$(this).toggle(true);
 							} else {
 								$(this).toggle(false);
