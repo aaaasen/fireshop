@@ -22,7 +22,6 @@ end
 
 Category.delete_all
 json = ActiveSupport::JSON.decode(open("http://firedov.es/db/categories.min.json")).each do |category|
-	print category['id'] + '\n'
 	Category.create!(:name => category['name'],
 									 :id => category['id'],
 									 :merchants => category['merchant_count'])
