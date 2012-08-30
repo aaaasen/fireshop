@@ -7,6 +7,8 @@ gem 'rails', '3.2.8'
 
 gem 'pg'
 
+gem 'thin'
+
 gem 'therubyracer'
 #gem 'less-rails-bootstrap'
 #gem 'select2-rails'
